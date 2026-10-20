@@ -3,7 +3,7 @@ set -Eeuo pipefail
 r=$'\e[31m'; g=$'\e[32m'; c=$'\e[36m'; y=$'\e[33m'; n=$'\e[0m'
 trap 'printf "%bError Unsuccessful%b\n" "$r" "$n" >&2' ERR
 SECONDS=0; cd "$(dirname "$(realpath "$0")")"
-t="$HOME/02KERNEL/TOOLCHAINS/toolchain/clang-r536225"
+t="/home/zahid/02.KERNEL/TOOLCHAINS/toolchain/clang-r536225"
 [[ -x "$t/bin/clang" && -x "$t/bin/ld.lld" ]] || { printf "%bToolchain not found! Cloning to...\nCloning failed! Aborting..%b\n" "$r" "$n"; exit 1; }
 export PATH="$t/bin:$PATH" ARCH=arm64 LLVM=1 LLVM_IAS=1 CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_COMPAT=arm-linux-gnueabi- KBUILD_BUILD_USER=TITAN KBUILD_BUILD_HOST=SAMURAI
 printf "%bInstalling dependencies...%b\n" "$y" "$n"
